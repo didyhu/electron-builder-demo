@@ -1,0 +1,46 @@
+{
+  "name": "electron-builder-demo",
+  "version": "1.0.0",
+  "productName": "Electron Builder Demo",
+  "license": "MIT",
+  "description": "electron-builder-demo",
+  "author": "didyhu@gmail.com",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "electron app/index",
+    "dist": "electron-builder",
+    "pack": "electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.example.electron-builder.demo",
+    "artifactName": "${productName} ${version}.${ext}",
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://127.0.0.1:1234/pub"
+      }
+    ],
+    "files": [
+      "./app",
+      "./node",
+      "!**/*.md",
+      "!**/*.log"
+    ],
+    "asarUnpack": [
+      "./node/",
+      "./node_modules/"
+    ]
+  },
+  "dependencies": {
+    "date-format": "^2.0.0",
+    "node": "^12.4.0",
+    "electron-updater": "^4.0.6",
+    "fs-extra": "^8.0.1",
+    "log4js": "^4.3.1"
+  },
+  "devDependencies": {
+    "electron": "^5.0.2",
+    "electron-builder": "^20.43.0",
+    "js-yaml": "^3.13.1"
+  }
+}
